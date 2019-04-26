@@ -1,5 +1,5 @@
 
-
+******************1st machine**********************************
 
 sudo yum -y install docker
 sudo systemctl start docker
@@ -8,10 +8,14 @@ sudo groupadd docker
 sudo usermod -aG docker jenkins
 sudo systemctl restart jenkins
 sudo systemctl restart docker
-
+sudo yum -y install git
+*********************************2nd machine*********************************
 --------------------------------webserver-----------------
+* Add sudo infront of these commands**************
+
 
 adduser deploy
+********got to root using sudo su -************************
 echo "deploy:jenkins" | chpasswd
 groupadd docker
 usermod -a -G docker deploy
@@ -20,7 +24,10 @@ echo "deploy ALL=(ALL) NOPASSWD: /usr/bin/docker pull *" >> /etc/sudoers
 /usr/bin/yum -y install docker
 /usr/bin/systemctl enable docker
 /usr/bin/systemctl start docker
+sudo yum -y install git
 
+********************************************************************
+1st machine
 yum -y install sshpass  // install only in jeniks server
 
 *****************************************************************************************************
